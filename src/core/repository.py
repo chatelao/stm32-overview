@@ -7,6 +7,8 @@ class CoreSpec(BaseModel):
     architecture: str
     frequency_mhz: int
     fpu: bool
+    cordic: bool
+    fmac: bool
 
 class MemorySpec(BaseModel):
     flash_kb: int

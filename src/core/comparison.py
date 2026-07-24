@@ -24,6 +24,8 @@ class ComparisonEngine:
             "architecture": "core.architecture",
             "frequency_mhz": "core.frequency_mhz",
             "fpu": "core.fpu",
+            "cordic": "core.cordic",
+            "fmac": "core.fmac",
             "flash_kb": "memory.flash_kb",
             "sram_kb": "memory.sram_kb",
             "uarts": "peripherals.uarts",

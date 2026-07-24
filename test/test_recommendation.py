@@ -12,7 +12,7 @@ def sample_registry_dir():
         spec_f446 = {
             "board": "Nucleo-F446RE",
             "mcu": "STM32F446RET6",
-            "core": {"architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True},
+            "core": {"architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False},
             "memory": {"flash_kb": 512, "sram_kb": 128},
             "peripherals": {"uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2, "adc_channels": 16, "dac_channels": 2, "timers": 10, "opamps": 0, "comps": 0},
             "electrical": {"min_voltage": 1.7, "max_voltage": 3.6}
@@ -20,7 +20,7 @@ def sample_registry_dir():
         spec_c031 = {
             "board": "Nucleo-C031C6",
             "mcu": "STM32C031C6T6",
-            "core": {"architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False},
+            "core": {"architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False, "cordic": False, "fmac": False},
             "memory": {"flash_kb": 32, "sram_kb": 12},
             "peripherals": {"uarts": 1, "usarts": 1, "i2c": 1, "spi": 1, "can": 0, "adc_channels": 5, "dac_channels": 0, "timers": 4, "opamps": 0, "comps": 0},
             "electrical": {"min_voltage": 2.0, "max_voltage": 3.6}
@@ -28,7 +28,7 @@ def sample_registry_dir():
         spec_g431 = {
             "board": "Nucleo-G431RB",
             "mcu": "STM32G431RBT6",
-            "core": {"architecture": "Cortex-M4", "frequency_mhz": 170, "fpu": True},
+            "core": {"architecture": "Cortex-M4", "frequency_mhz": 170, "fpu": True, "cordic": True, "fmac": True},
             "memory": {"flash_kb": 128, "sram_kb": 32},
             "peripherals": {"uarts": 0, "usarts": 3, "i2c": 3, "spi": 3, "can": 1, "adc_channels": 10, "dac_channels": 4, "timers": 8, "opamps": 4, "comps": 3},
             "electrical": {"min_voltage": 1.71, "max_voltage": 3.6}
@@ -70,13 +70,15 @@ def test_recommendation_all_match(sample_registry_dir):
         min_sram_kb=64,
         min_freq_mhz=100,
         requires_fpu=True,
+        requires_cordic=False,
+        requires_fmac=False,
         peripherals=["can"]
     )
     recommendations = engine.evaluate(constraints)
 
     assert len(recommendations) == 3
 
-    # Best match must be Nucleo-F446RE (100% score)
+        # Best match must be Nucleo-F446RE (100% score as requires_cordic and requires_fmac are False, and thus inactive constraints)
     best = recommendations[0]
     assert best.board_name == "Nucleo-F446RE"
     assert best.match_score == 100.0
@@ -156,6 +158,31 @@ def test_recommendation_peripherals(sample_registry_dir):
     assert c031.match_score == 0.0
     assert c031.matched_features == []
     assert set(c031.missing_features) == {"opamps", "can"}
+
+def test_recommendation_cordic_and_fmac(sample_registry_dir):
+    repo = DataRepository(sample_registry_dir)
+    registry = RegistryEngine(repo)
+    engine = RecommendationEngine(registry)
+
+    # Constraint requiring CORDIC and FMAC
+    constraints = Constraints(requires_cordic=True, requires_fmac=True)
+    recommendations = engine.evaluate(constraints)
+
+    assert len(recommendations) == 3
+
+    # Nucleo-G431RB should be 100% match (has both CORDIC and FMAC)
+    g431 = recommendations[0]
+    assert g431.board_name == "Nucleo-G431RB"
+    assert g431.match_score == 100.0
+    assert set(g431.matched_features) == {"cordic", "fmac"}
+    assert g431.missing_features == []
+
+    # Nucleo-F446RE should be 0% match (missing both)
+    f446 = [r for r in recommendations if r.board_name == "Nucleo-F446RE"][0]
+    assert f446.match_score == 0.0
+    assert f446.matched_features == []
+    assert set(f446.missing_features) == {"cordic", "fmac"}
+
 
 def test_recommendation_no_boards():
     with tempfile.TemporaryDirectory() as tmp_dir:
