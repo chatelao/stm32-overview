@@ -193,6 +193,31 @@ def test_recommendation_cordic_and_fmac(sample_registry_dir):
     assert set(f446.missing_features) == {"cordic", "fmac"}
 
 
+def test_recommendation_architecture(sample_registry_dir):
+    repo = DataRepository(sample_registry_dir)
+    registry = RegistryEngine(repo)
+    engine = RecommendationEngine(registry)
+
+    # Constraint requiring M4 architecture
+    constraints = Constraints(requires_arch="M4")
+    recommendations = engine.evaluate(constraints)
+
+    assert len(recommendations) == 3
+    # Nucleo-F446RE and Nucleo-G431RB have "Cortex-M4" -> 100% score
+    m4_boards = [r for r in recommendations if r.match_score == 100.0]
+    assert len(m4_boards) == 2
+    assert {r.board_name for r in m4_boards} == {"Nucleo-F446RE", "Nucleo-G431RB"}
+    for r in m4_boards:
+        assert r.matched_features == ["architecture"]
+        assert r.missing_features == []
+
+    # Nucleo-C031C6 has "Cortex-M0+" -> 0% score
+    c031 = [r for r in recommendations if r.board_name == "Nucleo-C031C6"][0]
+    assert c031.match_score == 0.0
+    assert c031.matched_features == []
+    assert c031.missing_features == ["architecture"]
+
+
 def test_recommendation_no_boards():
     with tempfile.TemporaryDirectory() as tmp_dir:
         repo = DataRepository(tmp_dir)

@@ -9,6 +9,7 @@ class Constraints(BaseModel):
     requires_fpu: bool = False
     requires_cordic: bool = False
     requires_fmac: bool = False
+    requires_arch: str = ""
     peripherals: List[str] = []
 
 class Recommendation(BaseModel):
@@ -84,7 +85,16 @@ class RecommendationEngine:
                 else:
                     missing.append("fmac")
 
-            # 7. Peripherals constraint
+            # 7. Architecture constraint
+            if constraints.requires_arch:
+                active_constraints += 1
+                board_arch = board_details.get("core", {}).get("architecture", "")
+                if constraints.requires_arch.lower() in board_arch.lower():
+                    matched.append("architecture")
+                else:
+                    missing.append("architecture")
+
+            # 8. Peripherals constraint
             for p in constraints.peripherals:
                 active_constraints += 1
                 if board_details.get("peripherals", {}).get(p, 0) > 0:
