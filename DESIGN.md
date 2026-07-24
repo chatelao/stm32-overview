@@ -190,6 +190,8 @@ peripherals:
   adc_channels: 16
   dac_channels: 2
   timers: 10
+  opamps: 0
+  comps: 0
 electrical:
   min_voltage: 1.7
   max_voltage: 3.6
@@ -222,6 +224,8 @@ entity "Peripherals" as PeripheralsSpec {
   adc_channels : Integer
   dac_channels : Integer
   timers : Integer
+  opamps : Integer
+  comps : Integer
 }
 
 BoardSpec ||--|| PeripheralsSpec
