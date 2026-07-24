@@ -39,13 +39,13 @@ Focuses on defining goals, specifying system architecture, and drafting the proj
 ### Phase 2: Specification Schemas & MCU Data Repository
 Defines data structures and captures MCU-specific details in static YAML files.
 
-*   [ ] Define and implement Pydantic validation schema matching the design specification.
+*   [x] Define and implement Pydantic validation schema matching the design specification.
 *   [ ] Create individual board specification profiles under `/specification/`:
     *   [ ] `specification/nucleo_f446re.yaml`
     *   [ ] `specification/nucleo_c031c6.yaml`
     *   [ ] `specification/nucleo_g431rb.yaml`
     *   [ ] `specification/nucleo_c542rc.yaml`
-*   [ ] Set up local installation scripts (`src/install.sh` and `test/install.sh`).
+*   [x] Set up local installation scripts (`src/install.sh` and `test/install.sh`).
 *   [ ] Implement the `DataRepository` interface to load, parse, and validate YAML files.
 
 ### Phase 3: Core Engine Interfaces & Implementations
