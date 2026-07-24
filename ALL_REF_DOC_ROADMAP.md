@@ -30,7 +30,7 @@ Establish the target specification models, mapping strategies, and write a robus
 ### Phase 2: Directory Schema Setup & Local Dry Runs
 Prepare the local environment and verify all documentation URLs without triggering full PDF downloads.
 
-*   [ ] **Create Directory Hierarchy**: Initialize the structured folders under `specification/`:
+*   [x] **Create Directory Hierarchy**: Initialize the structured folders under `specification/`:
     ```bash
     mkdir -p specification/pdfs/boards
     mkdir -p specification/pdfs/mcus
