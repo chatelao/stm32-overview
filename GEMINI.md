@@ -1,5 +1,9 @@
 # Goal
-Build an AI web chatbot based on a private vLLM engine.
+Provide a comprehensive overview and feature comparison of the STM32 microcontrollers in my workshop:
+- Nucleo-F446RE
+- Nucleo-C031C6
+- Nucleo-G431RB
+- Nucleo-C542RC
 
 # Structure
 - `CONCEPT.md`: The overall structure of the product, including Business & Use Cases as well as the High-Level Architecture.
