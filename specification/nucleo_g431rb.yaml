@@ -4,6 +4,8 @@ core:
   architecture: "Cortex-M4"
   frequency_mhz: 170
   fpu: true
+  cordic: true
+  fmac: true
 memory:
   flash_kb: 128
   sram_kb: 32

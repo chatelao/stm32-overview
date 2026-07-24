@@ -4,6 +4,8 @@ core:
   architecture: "Cortex-M33"
   frequency_mhz: 144
   fpu: true
+  cordic: true
+  fmac: true
 memory:
   flash_kb: 256
   sram_kb: 64

@@ -12,7 +12,9 @@ def test_valid_board_specification():
         "core": {
             "architecture": "Cortex-M4",
             "frequency_mhz": 180,
-            "fpu": True
+            "fpu": True,
+            "cordic": False,
+            "fmac": False
         },
         "memory": {
             "flash_kb": 512,
@@ -41,6 +43,8 @@ def test_valid_board_specification():
     assert board_spec.core.architecture == "Cortex-M4"
     assert board_spec.core.frequency_mhz == 180
     assert board_spec.core.fpu is True
+    assert board_spec.core.cordic is False
+    assert board_spec.core.fmac is False
     assert board_spec.memory.flash_kb == 512
     assert board_spec.memory.sram_kb == 128
     assert board_spec.peripherals.uarts == 4
@@ -56,6 +60,8 @@ def test_invalid_board_specification_missing_field():
         "core": {
             "architecture": "Cortex-M4",
             "frequency_mhz": 180,
+            "cordic": False,
+            "fmac": False
             # fpu is missing
         },
         "memory": {
@@ -89,7 +95,9 @@ def test_invalid_board_specification_wrong_type():
         "core": {
             "architecture": "Cortex-M4",
             "frequency_mhz": "one hundred and eighty",  # should be int
-            "fpu": True
+            "fpu": True,
+            "cordic": False,
+            "fmac": False
         },
         "memory": {
             "flash_kb": 512,
@@ -124,7 +132,9 @@ def test_data_repository_load_all_specs():
             "core": {
                 "architecture": "Cortex-M4",
                 "frequency_mhz": 180,
-                "fpu": True
+                "fpu": True,
+                "cordic": False,
+                "fmac": False
             },
             "memory": {
                 "flash_kb": 512,
@@ -154,7 +164,9 @@ def test_data_repository_load_all_specs():
             "core": {
                 "architecture": "Cortex-M0+",
                 "frequency_mhz": 48,
-                "fpu": False
+                "fpu": False,
+                "cordic": False,
+                "fmac": False
             },
             "memory": {
                 "flash_kb": 32,
@@ -208,7 +220,9 @@ def test_data_repository_get_spec():
             "core": {
                 "architecture": "Cortex-M4",
                 "frequency_mhz": 180,
-                "fpu": True
+                "fpu": True,
+                "cordic": False,
+                "fmac": False
             },
             "memory": {
                 "flash_kb": 512,

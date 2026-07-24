@@ -7,6 +7,8 @@ class Constraints(BaseModel):
     min_sram_kb: int = 0
     min_freq_mhz: int = 0
     requires_fpu: bool = False
+    requires_cordic: bool = False
+    requires_fmac: bool = False
     peripherals: List[str] = []
 
 class Recommendation(BaseModel):
@@ -66,7 +68,23 @@ class RecommendationEngine:
                 else:
                     missing.append("fpu")
 
-            # 5. Peripherals constraint
+            # 5. CORDIC constraint
+            if constraints.requires_cordic:
+                active_constraints += 1
+                if board_details.get("core", {}).get("cordic", False):
+                    matched.append("cordic")
+                else:
+                    missing.append("cordic")
+
+            # 6. FMAC constraint
+            if constraints.requires_fmac:
+                active_constraints += 1
+                if board_details.get("core", {}).get("fmac", False):
+                    matched.append("fmac")
+                else:
+                    missing.append("fmac")
+
+            # 7. Peripherals constraint
             for p in constraints.peripherals:
                 active_constraints += 1
                 if board_details.get("peripherals", {}).get(p, 0) > 0:

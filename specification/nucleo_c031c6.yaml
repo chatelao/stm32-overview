@@ -4,6 +4,8 @@ core:
   architecture: "Cortex-M0+"
   frequency_mhz: 48
   fpu: false
+  cordic: false
+  fmac: false
 memory:
   flash_kb: 32
   sram_kb: 12
