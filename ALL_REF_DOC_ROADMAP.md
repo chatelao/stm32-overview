@@ -9,7 +9,7 @@ This document outlines the strategic roadmap, milestones, and phased execution p
 | Phase | Description | Status | Target Completion |
 | :--- | :--- | :--- | :--- |
 | **Phase 1** | Pipeline Conceptualization & Script Preparation | ✅ | Completed |
-| **Phase 2** | Directory Schema Setup & Mock Verification | 🚧 | In Progress |
+| **Phase 2** | Directory Schema Setup & Mock Verification | ✅ | Completed |
 | **Phase 3** | Automated Testing & Fallback Validation | ⏳ | Q1 |
 | **Phase 4** | CLI Integration & CI Workflows | ⏳ | Q2 |
 | **Phase 5** | Long-Term Maintenance & Version Audits | ⏳ | Ongoing |
@@ -35,8 +35,8 @@ Prepare the local environment and verify all documentation URLs without triggeri
     mkdir -p specification/pdfs/boards
     mkdir -p specification/pdfs/mcus
     ```
-*   [ ] **Dry Run HTTP HEAD Verification**: Write a Python validation test or run a bash script utilizing `curl -I` (or `requests.head()`) to check for HTTP `200 OK` status across all real target URLs.
-*   [ ] **Validate Fallback Behavior**: Dry-run the script with simulated network errors or missing targets to ensure it gracefully creates `stm32c542rc_placeholder.txt` or maps to the defined Cortex-M33 backup manuals.
+*   [x] **Dry Run HTTP HEAD Verification**: Write a Python validation test or run a bash script utilizing `curl -I` (or `requests.head()`) to check for HTTP `200 OK` status across all real target URLs.
+*   [x] **Validate Fallback Behavior**: Dry-run the script with simulated network errors or missing targets to ensure it gracefully creates `stm32c542rc_placeholder.txt` or maps to the defined Cortex-M33 backup manuals.
 
 ---
 
