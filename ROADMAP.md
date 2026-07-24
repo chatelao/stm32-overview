@@ -9,8 +9,8 @@ This document outlines the milestones, goals, and phases for the STM32 Workshop 
 | Phase | Description | Status |
 | :--- | :--- | :--- |
 | **Phase 1** | Project Initiation, Conceptualization, and Design | ✅ |
-| **Phase 2** | Specification Schemas & MCU Data Repository | 🚧 |
-| **Phase 3** | Core Engine Interfaces & Implementations | ⏳ |
+| **Phase 2** | Specification Schemas & MCU Data Repository | ✅ |
+| **Phase 3** | Core Engine Interfaces & Implementations | 🚧 |
 | **Phase 4** | Command-Line Interface (CLI) & Exporter | ⏳ |
 | **Phase 5** | Continuous Integration, Documentation, & RTD Setup | ⏳ |
 
@@ -40,13 +40,13 @@ Focuses on defining goals, specifying system architecture, and drafting the proj
 Defines data structures and captures MCU-specific details in static YAML files.
 
 *   [x] Define and implement Pydantic validation schema matching the design specification.
-*   [ ] Create individual board specification profiles under `/specification/`:
-    *   [ ] `specification/nucleo_f446re.yaml`
-    *   [ ] `specification/nucleo_c031c6.yaml`
-    *   [ ] `specification/nucleo_g431rb.yaml`
-    *   [ ] `specification/nucleo_c542rc.yaml`
+*   [x] Create individual board specification profiles under `/specification/`:
+    *   [x] `specification/nucleo_f446re.yaml`
+    *   [x] `specification/nucleo_c031c6.yaml`
+    *   [x] `specification/nucleo_g431rb.yaml`
+    *   [x] `specification/nucleo_c542rc.yaml`
 *   [x] Set up local installation scripts (`src/install.sh` and `test/install.sh`).
-*   [ ] Implement the `DataRepository` interface to load, parse, and validate YAML files.
+*   [x] Implement the `DataRepository` interface to load, parse, and validate YAML files.
 
 ### Phase 3: Core Engine Interfaces & Implementations
 Implements the core business logic. All components must define clean interfaces before implementing internal logic to support parallel development.

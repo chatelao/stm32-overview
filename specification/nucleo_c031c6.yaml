@@ -1,0 +1,21 @@
+board: "Nucleo-C031C6"
+mcu: "STM32C031C6T6"
+core:
+  architecture: "Cortex-M0+"
+  frequency_mhz: 48
+  fpu: false
+memory:
+  flash_kb: 32
+  sram_kb: 12
+peripherals:
+  uarts: 1
+  usarts: 1
+  i2c: 1
+  spi: 1
+  can: 0
+  adc_channels: 5
+  dac_channels: 0
+  timers: 4
+electrical:
+  min_voltage: 2.0
+  max_voltage: 3.6
