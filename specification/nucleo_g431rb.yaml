@@ -1,0 +1,21 @@
+board: "Nucleo-G431RB"
+mcu: "STM32G431RBT6"
+core:
+  architecture: "Cortex-M4"
+  frequency_mhz: 170
+  fpu: true
+memory:
+  flash_kb: 128
+  sram_kb: 32
+peripherals:
+  uarts: 2
+  usarts: 3
+  i2c: 3
+  spi: 3
+  can: 1
+  adc_channels: 16
+  dac_channels: 4
+  timers: 10
+electrical:
+  min_voltage: 1.71
+  max_voltage: 3.6

@@ -1,0 +1,21 @@
+board: "Nucleo-C542RC"
+mcu: "STM32C542RCT6"
+core:
+  architecture: "Cortex-M33"
+  frequency_mhz: 100
+  fpu: true
+memory:
+  flash_kb: 256
+  sram_kb: 64
+peripherals:
+  uarts: 3
+  usarts: 2
+  i2c: 2
+  spi: 3
+  can: 1
+  adc_channels: 12
+  dac_channels: 1
+  timers: 8
+electrical:
+  min_voltage: 1.8
+  max_voltage: 3.6
