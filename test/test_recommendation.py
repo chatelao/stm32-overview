@@ -14,7 +14,10 @@ def sample_registry_dir():
             "mcu": "STM32F446RET6",
             "core": {"architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False},
             "memory": {"flash_kb": 512, "sram_kb": 128},
-            "peripherals": {"uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2, "adc_channels": 16, "dac_channels": 2, "timers": 10, "opamps": 0, "comps": 0},
+            "peripherals": {
+                "uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2, "adc_channels": 16, "dac_channels": 2, "timers": 10, "opamps": 0, "comps": 0,
+                "adc_resolution_bits": 12, "adc_speed_msps": 2.4, "timer_resolution_bits": 32
+            },
             "electrical": {"min_voltage": 1.7, "max_voltage": 3.6}
         }
         spec_c031 = {
@@ -22,7 +25,10 @@ def sample_registry_dir():
             "mcu": "STM32C031C6T6",
             "core": {"architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False, "cordic": False, "fmac": False},
             "memory": {"flash_kb": 32, "sram_kb": 12},
-            "peripherals": {"uarts": 1, "usarts": 1, "i2c": 1, "spi": 1, "can": 0, "adc_channels": 5, "dac_channels": 0, "timers": 4, "opamps": 0, "comps": 0},
+            "peripherals": {
+                "uarts": 1, "usarts": 1, "i2c": 1, "spi": 1, "can": 0, "adc_channels": 5, "dac_channels": 0, "timers": 4, "opamps": 0, "comps": 0,
+                "adc_resolution_bits": 12, "adc_speed_msps": 1.25, "timer_resolution_bits": 16
+            },
             "electrical": {"min_voltage": 2.0, "max_voltage": 3.6}
         }
         spec_g431 = {
@@ -30,7 +36,10 @@ def sample_registry_dir():
             "mcu": "STM32G431RBT6",
             "core": {"architecture": "Cortex-M4", "frequency_mhz": 170, "fpu": True, "cordic": True, "fmac": True},
             "memory": {"flash_kb": 128, "sram_kb": 32},
-            "peripherals": {"uarts": 0, "usarts": 3, "i2c": 3, "spi": 3, "can": 1, "adc_channels": 10, "dac_channels": 4, "timers": 8, "opamps": 4, "comps": 3},
+            "peripherals": {
+                "uarts": 0, "usarts": 3, "i2c": 3, "spi": 3, "can": 1, "adc_channels": 10, "dac_channels": 4, "timers": 8, "opamps": 4, "comps": 3,
+                "adc_resolution_bits": 12, "adc_speed_msps": 4.0, "timer_resolution_bits": 32
+            },
             "electrical": {"min_voltage": 1.71, "max_voltage": 3.6}
         }
 
