@@ -1,5 +1,7 @@
+import os
 from typing import Dict, List, Any
-from pydantic import BaseModel, Field
+import yaml
+from pydantic import BaseModel, ValidationError
 
 class CoreSpec(BaseModel):
     architecture: str
@@ -41,11 +43,34 @@ class DataRepository:
         Scans spec_dir, parses all yaml files, validates them against the Pydantic schema,
         and returns a list of dictionaries representing valid MCU specifications.
         """
-        pass
+        specs = []
+        if not os.path.isdir(self.spec_dir):
+            return specs
+
+        for filename in sorted(os.listdir(self.spec_dir)):
+            if filename.endswith(".yaml") or filename.endswith(".yml"):
+                filepath = os.path.join(self.spec_dir, filename)
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        data = yaml.safe_load(f)
+                    if data:
+                        # Validate data against Pydantic schema
+                        board_spec = BoardSpecification(**data)
+                        specs.append(board_spec.model_dump())
+                except (yaml.YAMLError, ValidationError, OSError):
+                    # Silently skip or let it propagate? The docstring says:
+                    # "returns a list of dictionaries representing valid MCU specifications"
+                    # We will only append valid specifications.
+                    continue
+        return specs
 
     def get_spec(self, board_name: str) -> Dict[str, Any]:
         """
         Retrieves and validates the specification for a specific board.
         Raises ValueError if the board is not found.
         """
-        pass
+        all_specs = self.load_all_specs()
+        for spec in all_specs:
+            if spec["board"].lower() == board_name.lower():
+                return spec
+        raise ValueError(f"Board '{board_name}' not found in specifications.")

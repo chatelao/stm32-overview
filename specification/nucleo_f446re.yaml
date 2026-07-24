@@ -1,0 +1,21 @@
+board: "Nucleo-F446RE"
+mcu: "STM32F446RET6"
+core:
+  architecture: "Cortex-M4"
+  frequency_mhz: 180
+  fpu: true
+memory:
+  flash_kb: 512
+  sram_kb: 128
+peripherals:
+  uarts: 4
+  usarts: 2
+  i2c: 3
+  spi: 4
+  can: 2
+  adc_channels: 16
+  dac_channels: 2
+  timers: 10
+electrical:
+  min_voltage: 1.7
+  max_voltage: 3.6
