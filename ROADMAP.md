@@ -58,9 +58,9 @@ Implements the core business logic. All components must define clean interfaces 
     *   [x] Implement `ComparisonEngine` to compute differences and align optional features.
 *   **Recommendation & Generation Engines**
     *   [x] Define the constraint structures and interfaces for `RecommendationEngine`.
-    *   [ ] Define the exporting interfaces for `DocGenerator`.
+    *   [x] Define the exporting interfaces for `DocGenerator`.
     *   [x] Implement `RecommendationEngine` using constraint-matching logic and scoring.
-    *   [ ] Implement `DocGenerator` to convert comparison results to standard Markdown tables.
+    *   [x] Implement `DocGenerator` to convert comparison results to standard Markdown tables.
 
 ### Phase 4: Command-Line Interface (CLI) & Exporter
 Builds the user-facing CLI utility allowing direct interaction with the engines.
