@@ -23,6 +23,9 @@ class PeripheralsSpec(BaseModel):
     timers: int
     opamps: int
     comps: int
+    adc_resolution_bits: int
+    adc_speed_msps: float
+    timer_resolution_bits: int
 
 class ElectricalSpec(BaseModel):
     min_voltage: float

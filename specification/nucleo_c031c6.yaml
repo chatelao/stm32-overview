@@ -18,6 +18,9 @@ peripherals:
   timers: 4
   opamps: 0
   comps: 0
+  adc_resolution_bits: 12
+  adc_speed_msps: 1.25
+  timer_resolution_bits: 16
 electrical:
   min_voltage: 2.0
   max_voltage: 3.6

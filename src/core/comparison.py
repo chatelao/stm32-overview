@@ -36,6 +36,9 @@ class ComparisonEngine:
             "timers": "peripherals.timers",
             "opamps": "peripherals.opamps",
             "comps": "peripherals.comps",
+            "adc_resolution_bits": "peripherals.adc_resolution_bits",
+            "adc_speed_msps": "peripherals.adc_speed_msps",
+            "timer_resolution_bits": "peripherals.timer_resolution_bits",
             "min_voltage": "electrical.min_voltage",
             "max_voltage": "electrical.max_voltage",
         }

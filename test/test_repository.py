@@ -28,7 +28,10 @@ def test_valid_board_specification():
             "dac_channels": 2,
             "timers": 10,
             "opamps": 0,
-            "comps": 0
+            "comps": 0,
+            "adc_resolution_bits": 12,
+            "adc_speed_msps": 2.4,
+            "timer_resolution_bits": 32
         },
         "electrical": {
             "min_voltage": 1.7,
@@ -46,6 +49,9 @@ def test_valid_board_specification():
     assert board_spec.peripherals.uarts == 4
     assert board_spec.peripherals.opamps == 0
     assert board_spec.peripherals.comps == 0
+    assert board_spec.peripherals.adc_resolution_bits == 12
+    assert board_spec.peripherals.adc_speed_msps == 2.4
+    assert board_spec.peripherals.timer_resolution_bits == 32
     assert board_spec.electrical.min_voltage == 1.7
     assert board_spec.electrical.max_voltage == 3.6
 
@@ -72,7 +78,10 @@ def test_invalid_board_specification_missing_field():
             "dac_channels": 2,
             "timers": 10,
             "opamps": 0,
-            "comps": 0
+            "comps": 0,
+            "adc_resolution_bits": 12,
+            "adc_speed_msps": 2.4,
+            "timer_resolution_bits": 32
         },
         "electrical": {
             "min_voltage": 1.7,
@@ -105,7 +114,10 @@ def test_invalid_board_specification_wrong_type():
             "dac_channels": 2,
             "timers": 10,
             "opamps": 0,
-            "comps": 0
+            "comps": 0,
+            "adc_resolution_bits": 12,
+            "adc_speed_msps": 2.4,
+            "timer_resolution_bits": 32
         },
         "electrical": {
             "min_voltage": 1.7,
@@ -140,7 +152,10 @@ def test_data_repository_load_all_specs():
                 "dac_channels": 2,
                 "timers": 10,
                 "opamps": 0,
-                "comps": 0
+                "comps": 0,
+                "adc_resolution_bits": 12,
+                "adc_speed_msps": 2.4,
+                "timer_resolution_bits": 32
             },
             "electrical": {
                 "min_voltage": 1.7,
@@ -170,7 +185,10 @@ def test_data_repository_load_all_specs():
                 "dac_channels": 0,
                 "timers": 4,
                 "opamps": 0,
-                "comps": 0
+                "comps": 0,
+                "adc_resolution_bits": 12,
+                "adc_speed_msps": 1.25,
+                "timer_resolution_bits": 16
             },
             "electrical": {
                 "min_voltage": 2.0,
@@ -224,7 +242,10 @@ def test_data_repository_get_spec():
                 "dac_channels": 2,
                 "timers": 10,
                 "opamps": 0,
-                "comps": 0
+                "comps": 0,
+                "adc_resolution_bits": 12,
+                "adc_speed_msps": 2.4,
+                "timer_resolution_bits": 32
             },
             "electrical": {
                 "min_voltage": 1.7,

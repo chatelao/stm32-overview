@@ -25,7 +25,8 @@ def test_comparison_valid_boards():
             "peripherals": {
                 "uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2,
                 "adc_channels": 16, "dac_channels": 2, "timers": 10,
-                "opamps": 0, "comps": 0
+                "opamps": 0, "comps": 0,
+                "adc_resolution_bits": 12, "adc_speed_msps": 2.4, "timer_resolution_bits": 32
             },
             "electrical": {"min_voltage": 1.7, "max_voltage": 3.6}
         }
@@ -37,7 +38,8 @@ def test_comparison_valid_boards():
             "peripherals": {
                 "uarts": 1, "usarts": 1, "i2c": 1, "spi": 1, "can": 0,
                 "adc_channels": 5, "dac_channels": 0, "timers": 4,
-                "opamps": 0, "comps": 0
+                "opamps": 0, "comps": 0,
+                "adc_resolution_bits": 12, "adc_speed_msps": 1.25, "timer_resolution_bits": 16
             },
             "electrical": {"min_voltage": 2.0, "max_voltage": 3.6}
         }
@@ -65,6 +67,9 @@ def test_comparison_valid_boards():
         assert result.features["sram_kb"] == [128, 12]
         assert result.features["can"] == [2, 0]
         assert result.features["min_voltage"] == [1.7, 2.0]
+        assert result.features["adc_resolution_bits"] == [12, 12]
+        assert result.features["adc_speed_msps"] == [2.4, 1.25]
+        assert result.features["timer_resolution_bits"] == [32, 16]
 
 def test_comparison_case_insensitivity_and_invalid_board():
     with tempfile.TemporaryDirectory() as tmp_dir:
@@ -76,7 +81,8 @@ def test_comparison_case_insensitivity_and_invalid_board():
             "peripherals": {
                 "uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2,
                 "adc_channels": 16, "dac_channels": 2, "timers": 10,
-                "opamps": 0, "comps": 0
+                "opamps": 0, "comps": 0,
+                "adc_resolution_bits": 12, "adc_speed_msps": 2.4, "timer_resolution_bits": 32
             },
             "electrical": {"min_voltage": 1.7, "max_voltage": 3.6}
         }
