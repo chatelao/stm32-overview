@@ -53,9 +53,9 @@ Implements the core business logic. All components must define clean interfaces 
 
 *   **Registry & Comparison Engines**
     *   [x] Define the python type-hinted interface for `RegistryEngine`.
-    *   [ ] Define the python type-hinted interface for `ComparisonEngine`.
+    *   [x] Define the python type-hinted interface for `ComparisonEngine`.
     *   [x] Implement `RegistryEngine` to query single sources of truth.
-    *   [ ] Implement `ComparisonEngine` to compute differences and align optional features.
+    *   [x] Implement `ComparisonEngine` to compute differences and align optional features.
 *   **Recommendation & Generation Engines**
     *   [ ] Define the constraint structures and interfaces for `RecommendationEngine`.
     *   [ ] Define the exporting interfaces for `DocGenerator`.
