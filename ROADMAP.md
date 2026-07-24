@@ -52,9 +52,9 @@ Defines data structures and captures MCU-specific details in static YAML files.
 Implements the core business logic. All components must define clean interfaces before implementing internal logic to support parallel development.
 
 *   **Registry & Comparison Engines**
-    *   [ ] Define the python type-hinted interface for `RegistryEngine`.
+    *   [x] Define the python type-hinted interface for `RegistryEngine`.
     *   [ ] Define the python type-hinted interface for `ComparisonEngine`.
-    *   [ ] Implement `RegistryEngine` to query single sources of truth.
+    *   [x] Implement `RegistryEngine` to query single sources of truth.
     *   [ ] Implement `ComparisonEngine` to compute differences and align optional features.
 *   **Recommendation & Generation Engines**
     *   [ ] Define the constraint structures and interfaces for `RecommendationEngine`.
