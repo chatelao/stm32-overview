@@ -16,6 +16,8 @@ peripherals:
   adc_channels: 26
   dac_channels: 4
   timers: 13
+  opamps: 3
+  comps: 4
 electrical:
   min_voltage: 1.71
   max_voltage: 3.6

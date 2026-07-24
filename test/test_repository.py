@@ -26,7 +26,9 @@ def test_valid_board_specification():
             "can": 2,
             "adc_channels": 16,
             "dac_channels": 2,
-            "timers": 10
+            "timers": 10,
+            "opamps": 0,
+            "comps": 0
         },
         "electrical": {
             "min_voltage": 1.7,
@@ -42,6 +44,8 @@ def test_valid_board_specification():
     assert board_spec.memory.flash_kb == 512
     assert board_spec.memory.sram_kb == 128
     assert board_spec.peripherals.uarts == 4
+    assert board_spec.peripherals.opamps == 0
+    assert board_spec.peripherals.comps == 0
     assert board_spec.electrical.min_voltage == 1.7
     assert board_spec.electrical.max_voltage == 3.6
 
@@ -66,7 +70,9 @@ def test_invalid_board_specification_missing_field():
             "can": 2,
             "adc_channels": 16,
             "dac_channels": 2,
-            "timers": 10
+            "timers": 10,
+            "opamps": 0,
+            "comps": 0
         },
         "electrical": {
             "min_voltage": 1.7,
@@ -97,7 +103,9 @@ def test_invalid_board_specification_wrong_type():
             "can": 2,
             "adc_channels": 16,
             "dac_channels": 2,
-            "timers": 10
+            "timers": 10,
+            "opamps": 0,
+            "comps": 0
         },
         "electrical": {
             "min_voltage": 1.7,
@@ -130,7 +138,9 @@ def test_data_repository_load_all_specs():
                 "can": 2,
                 "adc_channels": 16,
                 "dac_channels": 2,
-                "timers": 10
+                "timers": 10,
+                "opamps": 0,
+                "comps": 0
             },
             "electrical": {
                 "min_voltage": 1.7,
@@ -158,7 +168,9 @@ def test_data_repository_load_all_specs():
                 "can": 0,
                 "adc_channels": 5,
                 "dac_channels": 0,
-                "timers": 4
+                "timers": 4,
+                "opamps": 0,
+                "comps": 0
             },
             "electrical": {
                 "min_voltage": 2.0,
@@ -210,7 +222,9 @@ def test_data_repository_get_spec():
                 "can": 2,
                 "adc_channels": 16,
                 "dac_channels": 2,
-                "timers": 10
+                "timers": 10,
+                "opamps": 0,
+                "comps": 0
             },
             "electrical": {
                 "min_voltage": 1.7,
@@ -235,3 +249,14 @@ def test_data_repository_get_spec():
 def test_data_repository_empty_or_missing_dir():
     repo = DataRepository("non_existent_directory_abc")
     assert repo.load_all_specs() == []
+
+def test_actual_repository_files():
+    repo = DataRepository("specification")
+    specs = repo.load_all_specs()
+    # There are exactly 4 YAML files in specification/
+    assert len(specs) == 4
+
+    # Check that they have the new fields and validated correctly
+    for spec in specs:
+        assert "opamps" in spec["peripherals"]
+        assert "comps" in spec["peripherals"]

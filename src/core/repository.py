@@ -21,6 +21,8 @@ class PeripheralsSpec(BaseModel):
     adc_channels: int
     dac_channels: int
     timers: int
+    opamps: int
+    comps: int
 
 class ElectricalSpec(BaseModel):
     min_voltage: float
