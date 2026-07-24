@@ -10,8 +10,8 @@ This document outlines the milestones, goals, and phases for the STM32 Workshop 
 | :--- | :--- | :--- |
 | **Phase 1** | Project Initiation, Conceptualization, and Design | ✅ |
 | **Phase 2** | Specification Schemas & MCU Data Repository | ✅ |
-| **Phase 3** | Core Engine Interfaces & Implementations | 🚧 |
-| **Phase 4** | Command-Line Interface (CLI) & Exporter | ⏳ |
+| **Phase 3** | Core Engine Interfaces & Implementations | ✅ |
+| **Phase 4** | Command-Line Interface (CLI) & Exporter | ✅ |
 | **Phase 5** | Continuous Integration, Documentation, & RTD Setup | ⏳ |
 
 ---
@@ -19,8 +19,8 @@ This document outlines the milestones, goals, and phases for the STM32 Workshop 
 ## Goals
 
 *   **Goal 1**: Establish a unified, validated YAML specification schema for workshop microcontrollers. ✅
-*   **Goal 2**: Develop a robust core comparison and recommendation engine in Python. ⏳
-*   **Goal 3**: Build a user-friendly CLI to query, compare, and get board recommendations. ⏳
+*   **Goal 2**: Develop a robust core comparison and recommendation engine in Python. ✅
+*   **Goal 3**: Build a user-friendly CLI to query, compare, and get board recommendations. ✅
 *   **Goal 4**: Automate documentation generation (Markdown) and host it via ReadTheDocs. ⏳
 
 ---
@@ -65,10 +65,10 @@ Implements the core business logic. All components must define clean interfaces 
 ### Phase 4: Command-Line Interface (CLI) & Exporter
 Builds the user-facing CLI utility allowing direct interaction with the engines.
 
-*   [ ] Setup CLI commands structure (`list`, `show`, `compare`, `recommend`, `export`) using the Click framework.
-*   [ ] Connect CLI argument parser to corresponding core engines (Registry, Comparison, Recommendation).
-*   [ ] Implement validation logic for user CLI inputs (e.g., verifying board names exist).
-*   [ ] Integrate markdown exporting to automatically update the project comparison tables.
+*   [x] Setup CLI commands structure (`list`, `show`, `compare`, `recommend`, `export`) using the Click framework.
+*   [x] Connect CLI argument parser to corresponding core engines (Registry, Comparison, Recommendation).
+*   [x] Implement validation logic for user CLI inputs (e.g., verifying board names exist).
+*   [x] Integrate markdown exporting to automatically update the project comparison tables.
 
 ### Phase 5: Continuous Integration, Documentation, & RTD Setup
 Ensures the software is robust, tested, and automatically deployed.
