@@ -26,3 +26,13 @@ peripherals:
 electrical:
   min_voltage: 1.7
   max_voltage: 3.6
+documentation:
+  user_manual:
+    url: "https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf"
+    dest: "specification/pdfs/boards/nucleo_f446re_user_manual.pdf"
+  datasheet:
+    url: "https://www.st.com/resource/en/datasheet/stm32f446re.pdf"
+    dest: "specification/pdfs/mcus/stm32f446re_datasheet.pdf"
+  reference_manual:
+    url: "https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+    dest: "specification/pdfs/mcus/stm32f446re_reference_manual.pdf"

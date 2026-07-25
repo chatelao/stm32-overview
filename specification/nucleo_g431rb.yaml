@@ -26,3 +26,13 @@ peripherals:
 electrical:
   min_voltage: 1.71
   max_voltage: 3.6
+documentation:
+  user_manual:
+    url: "https://www.st.com/resource/en/user_manual/um2505-stm32-nucleo64-board-mb1367-stmicroelectronics.pdf"
+    dest: "specification/pdfs/boards/nucleo_g431rb_user_manual.pdf"
+  datasheet:
+    url: "https://www.st.com/resource/en/datasheet/stm32g431rb.pdf"
+    dest: "specification/pdfs/mcus/stm32g431rb_datasheet.pdf"
+  reference_manual:
+    url: "https://www.st.com/resource/en/reference_manual/rm0440-stm32g4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+    dest: "specification/pdfs/mcus/stm32g431rb_reference_manual.pdf"
