@@ -6,11 +6,9 @@ build:
     python: "3.12"
 
 # Configure ReadTheDocs to compile the documentation.
-# By default, RTD supports Sphinx or MkDocs.
 mkdocs:
   configuration: mkdocs.yml
 
 python:
   install:
-    - method: pip
-      path: .
+    - requirements: requirements.txt

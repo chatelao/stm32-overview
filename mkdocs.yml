@@ -1,0 +1,12 @@
+site_name: STM32 Workshop Microcontroller Overview and Comparison
+site_url: https://stm32-overview.readthedocs.io/
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
+  - Concept: concept.md
+  - Design: design.md
+  - Comparison Matrix: comparison_matrix.md
+  - Roadmap: roadmap.md
+  - Technical Debts: technical_debts.md
