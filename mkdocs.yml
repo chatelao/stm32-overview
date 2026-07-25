@@ -1,5 +1,7 @@
 site_name: STM32 Workshop Microcontroller Overview and Comparison
 site_url: https://stm32-overview.readthedocs.io/
+repo_url: https://github.com/chatelao/stm32-overview
+edit_uri: edit/main/docs/
 theme:
   name: readthedocs
 
