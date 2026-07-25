@@ -92,6 +92,20 @@ def check_url_head(url, timeout=10):
         return None, f"Unexpected error: {str(e)}"
 
 
+def is_valid_pdf(filepath):
+    """
+    Verifies if a file exists and starts with the %PDF magic header.
+    """
+    if not os.path.exists(filepath):
+        return False
+    try:
+        with open(filepath, 'rb') as f:
+            header = f.read(4)
+            return header.startswith(b'%PDF')
+    except Exception:
+        return False
+
+
 def download_file(url, dest, is_fallback=False, dry_run=False, timeout=10):
     """
     Downloads the file from url to dest, or runs HEAD check if dry_run=True.
@@ -121,6 +135,17 @@ def download_file(url, dest, is_fallback=False, dry_run=False, timeout=10):
             content = response.read()
             with open(dest, 'wb') as out_file:
                 out_file.write(content)
+
+        # Verify PDF integrity if it's supposed to be a PDF
+        if dest.lower().endswith('.pdf'):
+            if not is_valid_pdf(dest):
+                print(" -> Verification Failed: File is not a valid PDF (missing %PDF header)!")
+                try:
+                    os.remove(dest)
+                except Exception:
+                    pass
+                raise ValueError("Downloaded file is not a valid PDF")
+
         print(" -> Success!")
         return True
     except urllib.error.HTTPError as e:
@@ -148,6 +173,34 @@ def download_file(url, dest, is_fallback=False, dry_run=False, timeout=10):
 
 def main(args):
     dry_run = "--dry-run" in args
+    verify_only = "--verify" in args
+
+    if verify_only:
+        print("Starting reference documentation verification scan...")
+        all_valid = True
+        for target in DOWNLOAD_TARGETS:
+            dest = target["dest"]
+            if not os.path.exists(dest):
+                # Check if it has a placeholder instead (only for fallback/fictional targets)
+                txt_dest = dest.replace('.pdf', '_placeholder.txt')
+                if target.get("is_fallback") and os.path.exists(txt_dest):
+                    print(f"[VERIFY] {dest} -> Absent, but placeholder is present (Valid fallback state).")
+                else:
+                    print(f"[VERIFY] {dest} -> Missing!")
+                    all_valid = False
+            else:
+                if is_valid_pdf(dest):
+                    print(f"[VERIFY] {dest} -> Valid PDF.")
+                else:
+                    print(f"[VERIFY] {dest} -> Invalid PDF (Missing magic header)!")
+                    all_valid = False
+        if all_valid:
+            print("Verification scan complete. All files are in a valid state.")
+            return True
+        else:
+            print("Verification scan complete. Some files are missing or invalid.")
+            return False
+
     print(f"Starting planned reference documentation acquisition process (dry_run={dry_run})...")
 
     success_count = 0
