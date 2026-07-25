@@ -13,6 +13,7 @@ This document outlines the milestones, goals, and phases for the STM32 Workshop 
 | **Phase 3** | Core Engine Interfaces & Implementations | ✅ |
 | **Phase 4** | Command-Line Interface (CLI) & Exporter | ✅ |
 | **Phase 5** | Continuous Integration, Documentation, & RTD Setup | ✅ |
+| **Phase 6** | Technical Debt Resolution & Advanced Refinements | ⏳ |
 
 ---
 
@@ -78,3 +79,24 @@ Ensures the software is robust, tested, and automatically deployed.
 *   [x] Integrate coverage reporting and caching into the CI/CD pipeline. [Completed: 2025-02-18]
 *   [x] Configure `ReadTheDocs` (.readthedocs.yaml) for publishing project documentation compiled from the main branch. [Completed: 2025-02-18]
 *   [x] Log outstanding issues and non-critical technical observations in `TECHNICAL_DEBTS.md`. [Completed: 2025-02-18]
+
+---
+
+### Phase 6: Technical Debt Resolution & Advanced Refinements
+Focuses on resolving registered technical debts and integrating advanced verification features to ensure the codebase's long-term maintainability.
+
+*   **CLI Exception Handling & Test Coverage Improvement**
+    *   [ ] Refactor Click CLI commands in `src/main.py` to bubble specific exceptions to a centralized Click exception handler.
+    *   [ ] Add specialized test fixtures and mock setups in `test/test_main.py` to test exceptional paths.
+*   **Documentation Site Completion**
+    *   [ ] Initialize the `docs/` source directory and create a standard `mkdocs.yml` configuration.
+    *   [ ] Import conceptual and architectural documents (`CONCEPT.md`, `DESIGN.md`, and any exported comparison matrices) into the MkDocs structure.
+*   **Core Schema Extensibility**
+    *   [ ] Extend the `CoreSpec` Pydantic model to allow optional object structures/sub-schemas for hardware accelerators (e.g. `cordic`, `fmac`).
+    *   [ ] Update existing board specification files (`specification/*.yaml`) to conform to the extended accelerator models.
+*   **Safety Precautions in Exporter**
+    *   [ ] Retrack the `export` command's default output path to a safe folder like `docs/comparison_matrix.md`.
+    *   [ ] Implement a confirmation prompt in Click when the user attempts to overwrite an existing root-level file.
+*   **Reference Documentation Pipeline Validation (Alignment with ALL_REF_DOC_ROADMAP)**
+    *   [ ] Implement automated metadata association tests to verify YAML specs link correctly to downloaded reference manuals.
+    *   [ ] Add basic PDF binary integrity checks to verify downloaded files are valid PDFs.
