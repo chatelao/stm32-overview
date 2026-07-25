@@ -38,6 +38,11 @@ def test_valid_board_specification():
         "electrical": {
             "min_voltage": 1.7,
             "max_voltage": 3.6
+        },
+        "documentation": {
+            "user_manual": {"url": "http://um.pdf", "dest": "pdf/um.pdf"},
+            "datasheet": {"url": "http://ds.pdf", "dest": "pdf/ds.pdf"},
+            "reference_manual": {"url": "http://rm.pdf", "dest": "pdf/rm.pdf"}
         }
     }
     board_spec = BoardSpecification(**valid_data)
@@ -92,6 +97,11 @@ def test_invalid_board_specification_missing_field():
         "electrical": {
             "min_voltage": 1.7,
             "max_voltage": 3.6
+        },
+        "documentation": {
+            "user_manual": {"url": "http://um.pdf", "dest": "pdf/um.pdf"},
+            "datasheet": {"url": "http://ds.pdf", "dest": "pdf/ds.pdf"},
+            "reference_manual": {"url": "http://rm.pdf", "dest": "pdf/rm.pdf"}
         }
     }
     with pytest.raises(ValidationError):
@@ -130,6 +140,11 @@ def test_invalid_board_specification_wrong_type():
         "electrical": {
             "min_voltage": 1.7,
             "max_voltage": 3.6
+        },
+        "documentation": {
+            "user_manual": {"url": "http://um.pdf", "dest": "pdf/um.pdf"},
+            "datasheet": {"url": "http://ds.pdf", "dest": "pdf/ds.pdf"},
+            "reference_manual": {"url": "http://rm.pdf", "dest": "pdf/rm.pdf"}
         }
     }
     with pytest.raises(ValidationError):
@@ -170,6 +185,11 @@ def test_data_repository_load_all_specs():
             "electrical": {
                 "min_voltage": 1.7,
                 "max_voltage": 3.6
+            },
+            "documentation": {
+                "user_manual": {"url": "http://um.pdf", "dest": "pdf/um.pdf"},
+                "datasheet": {"url": "http://ds.pdf", "dest": "pdf/ds.pdf"},
+                "reference_manual": {"url": "http://rm.pdf", "dest": "pdf/rm.pdf"}
             }
         }
 
@@ -205,6 +225,11 @@ def test_data_repository_load_all_specs():
             "electrical": {
                 "min_voltage": 2.0,
                 "max_voltage": 3.6
+            },
+            "documentation": {
+                "user_manual": {"url": "http://um.pdf", "dest": "pdf/um.pdf"},
+                "datasheet": {"url": "http://ds.pdf", "dest": "pdf/ds.pdf"},
+                "reference_manual": {"url": "http://rm.pdf", "dest": "pdf/rm.pdf"}
             }
         }
 
@@ -264,6 +289,11 @@ def test_data_repository_get_spec():
             "electrical": {
                 "min_voltage": 1.7,
                 "max_voltage": 3.6
+            },
+            "documentation": {
+                "user_manual": {"url": "http://um.pdf", "dest": "pdf/um.pdf"},
+                "datasheet": {"url": "http://ds.pdf", "dest": "pdf/ds.pdf"},
+                "reference_manual": {"url": "http://rm.pdf", "dest": "pdf/rm.pdf"}
             }
         }
         with open(os.path.join(tmp_dir, "nucleo_f446re.yaml"), "w") as f:

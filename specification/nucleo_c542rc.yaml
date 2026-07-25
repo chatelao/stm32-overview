@@ -26,3 +26,13 @@ peripherals:
 electrical:
   min_voltage: 1.71
   max_voltage: 3.6
+documentation:
+  user_manual:
+    url: "https://www.st.com/resource/en/user_manual/um2861-stm32-nucleo144-board-mb1363-stmicroelectronics.pdf"
+    dest: "specification/pdfs/boards/nucleo_c542rc_user_manual.pdf"
+  datasheet:
+    url: "https://www.st.com/resource/en/datasheet/stm32u542xx.pdf"
+    dest: "specification/pdfs/mcus/stm32c542rc_datasheet.pdf"
+  reference_manual:
+    url: "https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+    dest: "specification/pdfs/mcus/stm32c542rc_reference_manual.pdf"

@@ -43,7 +43,7 @@ Prepare the local environment and verify all documentation URLs without triggeri
 ### Phase 3: Automated Testing & Validation
 Incorporate the document presence and mapping into the project's test suite.
 
-*   [ ] **Metadata Association Tests**: Write a test in `test/` to check that the YAML specifications (`specification/*.yaml`) contain accurate URL references or document IDs matching the downloaded files.
+*   [x] **Metadata Association Tests**: Write a test in `test/` to check that the YAML specifications (`specification/*.yaml`) contain accurate URL references or document IDs matching the downloaded files.
 *   [ ] **PDF Integrity Verification**: (Optional/Post-Download) Implement basic binary checks to ensure downloaded `.pdf` files are not corrupt and are valid PDF files (e.g., matching the `%PDF-` magic header).
 *   [ ] **Downloader Mocking**: Test the downloader script using mock URLs (e.g., via `unittest.mock` or a lightweight local HTTP server) to verify full-path downloads, timeouts, and rate-limiting behaviors.
 

@@ -26,3 +26,13 @@ peripherals:
 electrical:
   min_voltage: 2.0
   max_voltage: 3.6
+documentation:
+  user_manual:
+    url: "https://www.st.com/resource/en/user_manual/um2953-stm32-nucleo64-board-mb1717-stmicroelectronics.pdf"
+    dest: "specification/pdfs/boards/nucleo_c031c6_user_manual.pdf"
+  datasheet:
+    url: "https://www.st.com/resource/en/datasheet/stm32c031c6.pdf"
+    dest: "specification/pdfs/mcus/stm32c031c6_datasheet.pdf"
+  reference_manual:
+    url: "https://www.st.com/resource/en/reference_manual/rm0490-stm32c0x1-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+    dest: "specification/pdfs/mcus/stm32c031c6_reference_manual.pdf"

@@ -1,5 +1,5 @@
 import os
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 import yaml
 from pydantic import BaseModel, ValidationError
 
@@ -33,6 +33,15 @@ class ElectricalSpec(BaseModel):
     min_voltage: float
     max_voltage: float
 
+class DocumentItem(BaseModel):
+    url: str
+    dest: str
+
+class DocumentationSpec(BaseModel):
+    user_manual: DocumentItem
+    datasheet: DocumentItem
+    reference_manual: DocumentItem
+
 class BoardSpecification(BaseModel):
     board: str
     mcu: str
@@ -40,6 +49,7 @@ class BoardSpecification(BaseModel):
     memory: MemorySpec
     peripherals: PeripheralsSpec
     electrical: ElectricalSpec
+    documentation: Optional[DocumentationSpec] = None
 
 class DataRepository:
     def __init__(self, spec_dir: str):
