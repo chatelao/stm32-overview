@@ -1,4 +1,5 @@
 import os
+from unittest import mock
 from click.testing import CliRunner
 from src.main import cli
 
@@ -53,3 +54,53 @@ def test_cli_export(tmp_path):
     assert "Nucleo-C542RC" in content
     assert "Nucleo-F446RE" in content
     assert "Nucleo-G431RB" in content
+
+@mock.patch("src.main.DocGenerator.export_report")
+def test_cli_export_default(mock_export):
+    runner = CliRunner()
+    result = runner.invoke(cli, ["export"])
+    assert result.exit_code == 0
+    assert "Successfully exported comparison matrix to 'docs/comparison_matrix.md'." in result.output
+    mock_export.assert_called_once()
+    args, kwargs = mock_export.call_args
+    assert args[1] == "docs/comparison_matrix.md"
+
+def test_cli_export_overwrite_confirm_yes():
+    temp_filename = "temp_test_root_file.md"
+    abs_temp_path = os.path.abspath(temp_filename)
+    with open(abs_temp_path, "w") as f:
+        f.write("existing content")
+
+    try:
+        runner = CliRunner()
+        result = runner.invoke(cli, ["export", "-o", temp_filename], input="y\n")
+        assert result.exit_code == 0
+        assert "Warning: You are about to overwrite a root-level file" in result.output
+        assert f"Successfully exported comparison matrix to '{temp_filename}'." in result.output
+
+        with open(abs_temp_path, "r") as f:
+            content = f.read()
+            assert "Feature" in content
+    finally:
+        if os.path.exists(abs_temp_path):
+            os.remove(abs_temp_path)
+
+def test_cli_export_overwrite_confirm_no():
+    temp_filename = "temp_test_root_file_no.md"
+    abs_temp_path = os.path.abspath(temp_filename)
+    with open(abs_temp_path, "w") as f:
+        f.write("existing content")
+
+    try:
+        runner = CliRunner()
+        result = runner.invoke(cli, ["export", "-o", temp_filename], input="n\n")
+        assert result.exit_code == 0
+        assert "Warning: You are about to overwrite a root-level file" in result.output
+        assert "Export aborted." in result.output
+
+        with open(abs_temp_path, "r") as f:
+            content = f.read()
+            assert content == "existing content"
+    finally:
+        if os.path.exists(abs_temp_path):
+            os.remove(abs_temp_path)

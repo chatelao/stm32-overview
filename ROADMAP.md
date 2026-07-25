@@ -95,8 +95,8 @@ Focuses on resolving registered technical debts and integrating advanced verific
     *   [ ] Extend the `CoreSpec` Pydantic model to allow optional object structures/sub-schemas for hardware accelerators (e.g. `cordic`, `fmac`).
     *   [ ] Update existing board specification files (`specification/*.yaml`) to conform to the extended accelerator models.
 *   **Safety Precautions in Exporter**
-    *   [ ] Retrack the `export` command's default output path to a safe folder like `docs/comparison_matrix.md`.
-    *   [ ] Implement a confirmation prompt in Click when the user attempts to overwrite an existing root-level file.
+    *   [x] Retrack the `export` command's default output path to a safe folder like `docs/comparison_matrix.md`.
+    *   [x] Implement a confirmation prompt in Click when the user attempts to overwrite an existing root-level file.
 *   **Reference Documentation Pipeline Validation (Alignment with ALL_REF_DOC_ROADMAP)**
     *   [ ] Implement automated metadata association tests to verify YAML specs link correctly to downloaded reference manuals.
     *   [ ] Add basic PDF binary integrity checks to verify downloaded files are valid PDFs.

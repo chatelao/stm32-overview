@@ -118,7 +118,7 @@ def recommend_board(flash, sram, freq, fpu, cordic, fmac, arch, peripheral):
         sys.exit(1)
 
 @cli.command(name="export")
-@click.option("-o", "--output", default="README.md", type=click.Path(), help="Target markdown file path for exporting comparison data. [Default: README.md]")
+@click.option("-o", "--output", default="docs/comparison_matrix.md", type=click.Path(), help="Target markdown file path for exporting comparison data. [Default: docs/comparison_matrix.md]")
 def export_matrix(output):
     """Export comparison matrix to Markdown files."""
     try:
@@ -126,6 +126,18 @@ def export_matrix(output):
         if not boards:
             click.echo("No boards to export.")
             return
+
+        # Check if the output is a root-level file and already exists
+        abs_output = os.path.abspath(output)
+        abs_root = os.path.abspath(os.getcwd())
+        if os.path.exists(abs_output) and os.path.dirname(abs_output) == abs_root:
+            if not click.confirm(
+                f"Warning: You are about to overwrite a root-level file '{os.path.basename(abs_output)}'. Do you want to continue?",
+                default=False
+            ):
+                click.echo("Export aborted.")
+                return
+
         result = comparison_engine.compare(boards)
         DocGenerator.export_report(result, output)
         click.echo(f"Successfully exported comparison matrix to '{output}'.")
