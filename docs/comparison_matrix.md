@@ -4,8 +4,12 @@
 | architecture | Cortex-M0+ | Cortex-M33 | Cortex-M4 | Cortex-M4 |
 | frequency_mhz | 48 | 144 | 180 | 170 |
 | fpu | No | Yes | Yes | Yes |
+| fpu_type | N/A | FPv5-SP | FPv4-SP | FPv4-SP |
+| instruction_set | Armv6-M | Armv8-M Mainline | Armv7E-M | Armv7E-M |
+| dsp | No | Yes | Yes | Yes |
 | cordic | No | Yes | No | Yes |
 | fmac | No | Yes | No | Yes |
+| accelerations | None | CORDIC, FMAC, ART Accelerator, TrustZone | ART Accelerator | CORDIC, FMAC, ART Accelerator |
 | flash_kb | 32 | 256 | 512 | 128 |
 | sram_kb | 12 | 64 | 128 | 32 |
 | uarts | 1 | 2 | 4 | 1 |

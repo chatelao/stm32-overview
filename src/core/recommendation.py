@@ -9,6 +9,7 @@ class Constraints(BaseModel):
     requires_fpu: bool = False
     requires_cordic: bool = False
     requires_fmac: bool = False
+    requires_dsp: bool = False
     requires_arch: str = ""
     peripherals: List[str] = []
 
@@ -84,6 +85,14 @@ class RecommendationEngine:
                     matched.append("fmac")
                 else:
                     missing.append("fmac")
+
+            # 6.5 DSP constraint
+            if constraints.requires_dsp:
+                active_constraints += 1
+                if board_details.get("core", {}).get("dsp", False):
+                    matched.append("dsp")
+                else:
+                    missing.append("dsp")
 
             # 7. Architecture constraint
             if constraints.requires_arch:

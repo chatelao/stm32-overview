@@ -20,7 +20,10 @@ def test_comparison_valid_boards():
         spec_1 = {
             "board": "Nucleo-F446RE",
             "mcu": "STM32F446RET6",
-            "core": {"architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False},
+            "core": {
+                "architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False,
+                "instruction_set": "Armv7E-M", "fpu_type": "FPv4-SP", "dsp": True, "accelerations": ["ART Accelerator"]
+            },
             "memory": {"flash_kb": 512, "sram_kb": 128},
             "peripherals": {
                 "uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2,
@@ -33,7 +36,10 @@ def test_comparison_valid_boards():
         spec_2 = {
             "board": "Nucleo-C031C6",
             "mcu": "STM32C031C6T6",
-            "core": {"architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False, "cordic": False, "fmac": False},
+            "core": {
+                "architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False, "cordic": False, "fmac": False,
+                "instruction_set": "Armv6-M", "fpu_type": None, "dsp": False, "accelerations": []
+            },
             "memory": {"flash_kb": 32, "sram_kb": 12},
             "peripherals": {
                 "uarts": 1, "usarts": 1, "i2c": 1, "spi": 1, "can": 0,
@@ -63,8 +69,12 @@ def test_comparison_valid_boards():
         assert result.features["architecture"] == ["Cortex-M4", "Cortex-M0+"]
         assert result.features["frequency_mhz"] == [180, 48]
         assert result.features["fpu"] == [True, False]
+        assert result.features["instruction_set"] == ["Armv7E-M", "Armv6-M"]
+        assert result.features["fpu_type"] == ["FPv4-SP", None]
+        assert result.features["dsp"] == [True, False]
         assert result.features["cordic"] == [False, False]
         assert result.features["fmac"] == [False, False]
+        assert result.features["accelerations"] == [["ART Accelerator"], []]
         assert result.features["flash_kb"] == [512, 32]
         assert result.features["sram_kb"] == [128, 12]
         assert result.features["can"] == [2, 0]
@@ -78,7 +88,10 @@ def test_comparison_case_insensitivity_and_invalid_board():
         spec_1 = {
             "board": "Nucleo-F446RE",
             "mcu": "STM32F446RET6",
-            "core": {"architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False},
+            "core": {
+                "architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False,
+                "instruction_set": "Armv7E-M", "fpu_type": "FPv4-SP", "dsp": True, "accelerations": ["ART Accelerator"]
+            },
             "memory": {"flash_kb": 512, "sram_kb": 128},
             "peripherals": {
                 "uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2,

@@ -9,6 +9,10 @@ class CoreSpec(BaseModel):
     fpu: bool
     cordic: bool
     fmac: bool
+    instruction_set: str
+    fpu_type: Optional[str] = None
+    dsp: bool
+    accelerations: List[str] = []
 
 class MemorySpec(BaseModel):
     flash_kb: int

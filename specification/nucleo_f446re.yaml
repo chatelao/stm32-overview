@@ -6,6 +6,11 @@ core:
   fpu: true
   cordic: false
   fmac: false
+  instruction_set: "Armv7E-M"
+  fpu_type: "FPv4-SP"
+  dsp: true
+  accelerations:
+    - "ART Accelerator"
 memory:
   flash_kb: 512
   sram_kb: 128

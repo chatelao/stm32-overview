@@ -6,6 +6,14 @@ core:
   fpu: true
   cordic: true
   fmac: true
+  instruction_set: "Armv8-M Mainline"
+  fpu_type: "FPv5-SP"
+  dsp: true
+  accelerations:
+    - "CORDIC"
+    - "FMAC"
+    - "ART Accelerator"
+    - "TrustZone"
 memory:
   flash_kb: 256
   sram_kb: 64

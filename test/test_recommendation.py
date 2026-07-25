@@ -12,7 +12,10 @@ def sample_registry_dir():
         spec_f446 = {
             "board": "Nucleo-F446RE",
             "mcu": "STM32F446RET6",
-            "core": {"architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False},
+            "core": {
+                "architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False,
+                "instruction_set": "Armv7E-M", "fpu_type": "FPv4-SP", "dsp": True, "accelerations": ["ART Accelerator"]
+            },
             "memory": {"flash_kb": 512, "sram_kb": 128},
             "peripherals": {
                 "uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2, "adc_channels": 16, "dac_channels": 2, "timers": 10, "opamps": 0, "comps": 0,
@@ -23,7 +26,10 @@ def sample_registry_dir():
         spec_c031 = {
             "board": "Nucleo-C031C6",
             "mcu": "STM32C031C6T6",
-            "core": {"architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False, "cordic": False, "fmac": False},
+            "core": {
+                "architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False, "cordic": False, "fmac": False,
+                "instruction_set": "Armv6-M", "fpu_type": None, "dsp": False, "accelerations": []
+            },
             "memory": {"flash_kb": 32, "sram_kb": 12},
             "peripherals": {
                 "uarts": 1, "usarts": 1, "i2c": 1, "spi": 1, "can": 0, "adc_channels": 5, "dac_channels": 0, "timers": 4, "opamps": 0, "comps": 0,
@@ -34,7 +40,10 @@ def sample_registry_dir():
         spec_g431 = {
             "board": "Nucleo-G431RB",
             "mcu": "STM32G431RBT6",
-            "core": {"architecture": "Cortex-M4", "frequency_mhz": 170, "fpu": True, "cordic": True, "fmac": True},
+            "core": {
+                "architecture": "Cortex-M4", "frequency_mhz": 170, "fpu": True, "cordic": True, "fmac": True,
+                "instruction_set": "Armv7E-M", "fpu_type": "FPv4-SP", "dsp": True, "accelerations": ["CORDIC", "FMAC", "ART Accelerator"]
+            },
             "memory": {"flash_kb": 128, "sram_kb": 32},
             "peripherals": {
                 "uarts": 0, "usarts": 3, "i2c": 3, "spi": 3, "can": 1, "adc_channels": 10, "dac_channels": 4, "timers": 8, "opamps": 4, "comps": 3,
@@ -227,3 +236,22 @@ def test_recommendation_no_boards():
         constraints = Constraints(min_flash_kb=64)
         recommendations = engine.evaluate(constraints)
         assert recommendations == []
+
+
+def test_recommendation_dsp(sample_registry_dir):
+    repo = DataRepository(sample_registry_dir)
+    registry = RegistryEngine(repo)
+    engine = RecommendationEngine(registry)
+
+    constraints = Constraints(requires_dsp=True)
+    recommendations = engine.evaluate(constraints)
+
+    assert len(recommendations) == 3
+    # Nucleo-F446RE and Nucleo-G431RB have dsp -> 100% score
+    dsp_boards = [r for r in recommendations if r.match_score == 100.0]
+    assert len(dsp_boards) == 2
+    assert {r.board_name for r in dsp_boards} == {"Nucleo-F446RE", "Nucleo-G431RB"}
+
+    # Nucleo-C031C6 has dsp=False -> 0% score
+    c031 = [r for r in recommendations if r.board_name == "Nucleo-C031C6"][0]
+    assert c031.match_score == 0.0

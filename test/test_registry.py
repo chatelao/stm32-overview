@@ -10,7 +10,10 @@ def test_registry_list_boards():
         spec_1 = {
             "board": "Nucleo-F446RE",
             "mcu": "STM32F446RET6",
-            "core": {"architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False},
+            "core": {
+                "architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False,
+                "instruction_set": "Armv7E-M", "fpu_type": "FPv4-SP", "dsp": True, "accelerations": ["ART Accelerator"]
+            },
             "memory": {"flash_kb": 512, "sram_kb": 128},
             "peripherals": {
                 "uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2, "adc_channels": 16, "dac_channels": 2, "timers": 10, "opamps": 0, "comps": 0,
@@ -21,7 +24,10 @@ def test_registry_list_boards():
         spec_2 = {
             "board": "Nucleo-C031C6",
             "mcu": "STM32C031C6T6",
-            "core": {"architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False, "cordic": False, "fmac": False},
+            "core": {
+                "architecture": "Cortex-M0+", "frequency_mhz": 48, "fpu": False, "cordic": False, "fmac": False,
+                "instruction_set": "Armv6-M", "fpu_type": None, "dsp": False, "accelerations": []
+            },
             "memory": {"flash_kb": 32, "sram_kb": 12},
             "peripherals": {
                 "uarts": 1, "usarts": 1, "i2c": 1, "spi": 1, "can": 0, "adc_channels": 5, "dac_channels": 0, "timers": 4, "opamps": 0, "comps": 0,
@@ -47,7 +53,10 @@ def test_registry_get_board_details():
         spec_1 = {
             "board": "Nucleo-F446RE",
             "mcu": "STM32F446RET6",
-            "core": {"architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False},
+            "core": {
+                "architecture": "Cortex-M4", "frequency_mhz": 180, "fpu": True, "cordic": False, "fmac": False,
+                "instruction_set": "Armv7E-M", "fpu_type": "FPv4-SP", "dsp": True, "accelerations": ["ART Accelerator"]
+            },
             "memory": {"flash_kb": 512, "sram_kb": 128},
             "peripherals": {
                 "uarts": 4, "usarts": 2, "i2c": 3, "spi": 4, "can": 2, "adc_channels": 16, "dac_channels": 2, "timers": 10, "opamps": 0, "comps": 0,
