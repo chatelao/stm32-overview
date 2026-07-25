@@ -1,0 +1,5 @@
+pyyaml
+pydantic
+click
+pytest
+pytest-cov

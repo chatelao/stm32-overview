@@ -12,7 +12,7 @@ This document outlines the milestones, goals, and phases for the STM32 Workshop 
 | **Phase 2** | Specification Schemas & MCU Data Repository | ✅ |
 | **Phase 3** | Core Engine Interfaces & Implementations | ✅ |
 | **Phase 4** | Command-Line Interface (CLI) & Exporter | ✅ |
-| **Phase 5** | Continuous Integration, Documentation, & RTD Setup | ⏳ |
+| **Phase 5** | Continuous Integration, Documentation, & RTD Setup | ✅ |
 
 ---
 
@@ -21,7 +21,7 @@ This document outlines the milestones, goals, and phases for the STM32 Workshop 
 *   **Goal 1**: Establish a unified, validated YAML specification schema for workshop microcontrollers. ✅
 *   **Goal 2**: Develop a robust core comparison and recommendation engine in Python. ✅
 *   **Goal 3**: Build a user-friendly CLI to query, compare, and get board recommendations. ✅
-*   **Goal 4**: Automate documentation generation (Markdown) and host it via ReadTheDocs. ⏳
+*   **Goal 4**: Automate documentation generation (Markdown) and host it via ReadTheDocs. ✅
 
 ---
 
@@ -73,8 +73,8 @@ Builds the user-facing CLI utility allowing direct interaction with the engines.
 ### Phase 5: Continuous Integration, Documentation, & RTD Setup
 Ensures the software is robust, tested, and automatically deployed.
 
-*   [ ] Write unit tests for Pydantic validation, core engines, and CLI command outputs.
-*   [ ] Setup an empty GitHub Action workflow to automate tests on every branch.
-*   [ ] Integrate coverage reporting and caching into the CI/CD pipeline.
-*   [ ] Configure `ReadTheDocs` (.readthedocs.yaml) for publishing project documentation compiled from the main branch.
-*   [ ] Log outstanding issues and non-critical technical observations in `TECHNICAL_DEBTS.md`.
+*   [x] Write unit tests for Pydantic validation, core engines, and CLI command outputs. [Completed: 2025-02-18]
+*   [x] Setup an empty GitHub Action workflow to automate tests on every branch. [Completed: 2025-02-18]
+*   [x] Integrate coverage reporting and caching into the CI/CD pipeline. [Completed: 2025-02-18]
+*   [x] Configure `ReadTheDocs` (.readthedocs.yaml) for publishing project documentation compiled from the main branch. [Completed: 2025-02-18]
+*   [x] Log outstanding issues and non-critical technical observations in `TECHNICAL_DEBTS.md`. [Completed: 2025-02-18]
