@@ -19,7 +19,6 @@ This document logs outstanding issues, non-critical technical observations, and 
 *   **Impact**: It does not allow for specifying version numbers, performance characteristics, or memory allocation details.
 *   **Actionable Recommendation**: Extend the `CoreSpec` model to allow optional objects/sub-schemas for hardware accelerators to support more granular hardware capabilities if they become relevant in future workshop iterations.
 
-## 4. Default Export File Safety
-*   **Observation**: The `export` command defaults to writing to `README.md`.
-*   **Impact**: An accidental execution of `python3 src/main.py export` without specifying `-o` will overwrite the repository's root `README.md` (if it existed or was customized).
-*   **Actionable Recommendation**: Change the default output of the `export` command to a safe path (such as `docs/comparison_matrix.md`) or prompt the user for confirmation if they are about to overwrite an existing root-level file.
+## 4. Default Export File Safety [RESOLVED]
+*   **Observation**: The `export` command previously defaulted to writing to `README.md`.
+*   **Impact**: Resolved by changing the default export path to `docs/comparison_matrix.md` and adding an interactive Click confirmation prompt (`click.confirm`) when attempting to overwrite any root-level file.
