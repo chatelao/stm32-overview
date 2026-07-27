@@ -10,8 +10,6 @@ core:
   fpu_type: "FPv4-SP"
   dsp: true
   accelerations:
-    - "CORDIC"
-    - "FMAC"
     - "ART Accelerator"
 memory:
   flash_kb: 128

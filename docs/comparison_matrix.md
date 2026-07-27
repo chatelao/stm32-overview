@@ -9,7 +9,7 @@
 | dsp | No | Yes | Yes | Yes |
 | cordic | No | Yes | No | Yes |
 | fmac | No | Yes | No | Yes |
-| accelerations | None | CORDIC, FMAC, ART Accelerator, TrustZone | ART Accelerator | CORDIC, FMAC, ART Accelerator |
+| accelerations | None | ART Accelerator, TrustZone | ART Accelerator | ART Accelerator |
 | flash_kb | 32 | 256 | 512 | 128 |
 | sram_kb | 12 | 64 | 128 | 32 |
 | uarts | 1 | 2 | 4 | 1 |

@@ -42,7 +42,7 @@ def sample_registry_dir():
             "mcu": "STM32G431RBT6",
             "core": {
                 "architecture": "Cortex-M4", "frequency_mhz": 170, "fpu": True, "cordic": True, "fmac": True,
-                "instruction_set": "Armv7E-M", "fpu_type": "FPv4-SP", "dsp": True, "accelerations": ["CORDIC", "FMAC", "ART Accelerator"]
+                "instruction_set": "Armv7E-M", "fpu_type": "FPv4-SP", "dsp": True, "accelerations": ["ART Accelerator"]
             },
             "memory": {"flash_kb": 128, "sram_kb": 32},
             "peripherals": {

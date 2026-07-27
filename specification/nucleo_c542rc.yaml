@@ -10,8 +10,6 @@ core:
   fpu_type: "FPv5-SP"
   dsp: true
   accelerations:
-    - "CORDIC"
-    - "FMAC"
     - "ART Accelerator"
     - "TrustZone"
 memory:
