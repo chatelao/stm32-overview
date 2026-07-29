@@ -1,10 +1,13 @@
 # STM32 Workshop Microcontroller Overview and Comparison
 
-This repository provides a comprehensive overview and feature comparison of specific STM32 microcontrollers used in our workshop:
+This repository provides a comprehensive overview and feature comparison of microcontrollers used in our workshop, including both STM32 and Seeed Studio XIAO boards:
 - **Nucleo-F446RE**
 - **Nucleo-C031C6**
 - **Nucleo-G431RB**
 - **Nucleo-C542RC**
+- **XIAO RP2040**
+- **XIAO RP2354A**
+- **XIAO RA4M1**
 
 The goal is to support decision-making, hardware tiering, workshop curricula standardization, and constraint-based board recommendations.
 

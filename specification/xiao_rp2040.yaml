@@ -1,0 +1,42 @@
+board: "XIAO RP2040"
+mcu: "RP2040"
+core:
+  architecture: "Cortex-M0+"
+  frequency_mhz: 133
+  fpu: false
+  cordic: false
+  fmac: false
+  instruction_set: "Armv6-M"
+  fpu_type: null
+  dsp: false
+  accelerations: []
+memory:
+  flash_kb: 2048
+  sram_kb: 264
+peripherals:
+  uarts: 1
+  usarts: 0
+  i2c: 1
+  spi: 1
+  can: 0
+  adc_channels: 4
+  dac_channels: 0
+  timers: 1
+  opamps: 0
+  comps: 0
+  adc_resolution_bits: 12
+  adc_speed_msps: 0.5
+  timer_resolution_bits: 64
+electrical:
+  min_voltage: 1.62
+  max_voltage: 3.63
+documentation:
+  user_manual:
+    url: "https://datasheets.raspberrypi.com/rp2040/rp2040-product-brief.pdf"
+    dest: "specification/pdfs/boards/xiao_rp2040_user_manual.pdf"
+  datasheet:
+    url: "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf"
+    dest: "specification/pdfs/mcus/rp2040_datasheet.pdf"
+  reference_manual:
+    url: "https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf"
+    dest: "specification/pdfs/mcus/rp2040_reference_manual.pdf"

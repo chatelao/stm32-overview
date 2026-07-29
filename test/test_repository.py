@@ -346,8 +346,8 @@ def test_data_repository_empty_or_missing_dir():
 def test_actual_repository_files():
     repo = DataRepository("specification")
     specs = repo.load_all_specs()
-    # There are exactly 4 YAML files in specification/
-    assert len(specs) == 4
+    # There are exactly 7 YAML files in specification/
+    assert len(specs) == 7
 
     # Check that they have the new fields and validated correctly
     for spec in specs:
