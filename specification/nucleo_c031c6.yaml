@@ -6,6 +6,10 @@ core:
   fpu: false
   cordic: false
   fmac: false
+  instruction_set: "Armv6-M"
+  fpu_type: null
+  dsp: false
+  accelerations: []
 memory:
   flash_kb: 32
   sram_kb: 12

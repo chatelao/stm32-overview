@@ -27,6 +27,8 @@ class DocGenerator:
                     formatted_values.append("Yes" if val else "No")
                 elif val is None:
                     formatted_values.append("N/A")
+                elif isinstance(val, list):
+                    formatted_values.append(", ".join(str(item) for item in val) if val else "None")
                 else:
                     formatted_values.append(str(val))
             row = f"| {feature_name} | " + " | ".join(formatted_values) + " |"

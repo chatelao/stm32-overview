@@ -88,9 +88,10 @@ def compare_boards(board):
 @click.option("-u", "--fpu", is_flag=True, help="Require Floating Point Unit (FPU).")
 @click.option("-c", "--cordic", is_flag=True, help="Require CORDIC accelerator.")
 @click.option("-a", "--fmac", is_flag=True, help="Require FMAC accelerator.")
+@click.option("-d", "--dsp", is_flag=True, help="Require DSP support.")
 @click.option("-r", "--arch", type=str, default="", help="Require CPU architecture (like M33, M4, M3).")
 @click.option("-p", "--peripheral", multiple=True, help="Required peripherals (can be repeated).")
-def recommend_board(flash, sram, freq, fpu, cordic, fmac, arch, peripheral):
+def recommend_board(flash, sram, freq, fpu, cordic, fmac, dsp, arch, peripheral):
     """Recommend a board based on constraints."""
     try:
         constraints = Constraints(
@@ -100,6 +101,7 @@ def recommend_board(flash, sram, freq, fpu, cordic, fmac, arch, peripheral):
             requires_fpu=fpu,
             requires_cordic=cordic,
             requires_fmac=fmac,
+            requires_dsp=dsp,
             requires_arch=arch,
             peripherals=list(peripheral)
         )

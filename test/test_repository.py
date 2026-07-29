@@ -14,7 +14,11 @@ def test_valid_board_specification():
             "frequency_mhz": 180,
             "fpu": True,
             "cordic": False,
-            "fmac": False
+            "fmac": False,
+            "instruction_set": "Armv7E-M",
+            "fpu_type": "FPv4-SP",
+            "dsp": True,
+            "accelerations": ["ART Accelerator"]
         },
         "memory": {
             "flash_kb": 512,
@@ -53,6 +57,10 @@ def test_valid_board_specification():
     assert board_spec.core.fpu is True
     assert board_spec.core.cordic is False
     assert board_spec.core.fmac is False
+    assert board_spec.core.instruction_set == "Armv7E-M"
+    assert board_spec.core.fpu_type == "FPv4-SP"
+    assert board_spec.core.dsp is True
+    assert board_spec.core.accelerations == ["ART Accelerator"]
     assert board_spec.memory.flash_kb == 512
     assert board_spec.memory.sram_kb == 128
     assert board_spec.peripherals.uarts == 4
@@ -72,7 +80,11 @@ def test_invalid_board_specification_missing_field():
             "architecture": "Cortex-M4",
             "frequency_mhz": 180,
             "cordic": False,
-            "fmac": False
+            "fmac": False,
+            "instruction_set": "Armv7E-M",
+            "fpu_type": "FPv4-SP",
+            "dsp": True,
+            "accelerations": ["ART Accelerator"]
             # fpu is missing
         },
         "memory": {
@@ -116,7 +128,11 @@ def test_invalid_board_specification_wrong_type():
             "frequency_mhz": "one hundred and eighty",  # should be int
             "fpu": True,
             "cordic": False,
-            "fmac": False
+            "fmac": False,
+            "instruction_set": "Armv7E-M",
+            "fpu_type": "FPv4-SP",
+            "dsp": True,
+            "accelerations": ["ART Accelerator"]
         },
         "memory": {
             "flash_kb": 512,
@@ -161,7 +177,11 @@ def test_data_repository_load_all_specs():
                 "frequency_mhz": 180,
                 "fpu": True,
                 "cordic": False,
-                "fmac": False
+                "fmac": False,
+                "instruction_set": "Armv7E-M",
+                "fpu_type": "FPv4-SP",
+                "dsp": True,
+                "accelerations": ["ART Accelerator"]
             },
             "memory": {
                 "flash_kb": 512,
@@ -201,7 +221,11 @@ def test_data_repository_load_all_specs():
                 "frequency_mhz": 48,
                 "fpu": False,
                 "cordic": False,
-                "fmac": False
+                "fmac": False,
+                "instruction_set": "Armv6-M",
+                "fpu_type": None,
+                "dsp": False,
+                "accelerations": []
             },
             "memory": {
                 "flash_kb": 32,
@@ -265,7 +289,11 @@ def test_data_repository_get_spec():
                 "frequency_mhz": 180,
                 "fpu": True,
                 "cordic": False,
-                "fmac": False
+                "fmac": False,
+                "instruction_set": "Armv7E-M",
+                "fpu_type": "FPv4-SP",
+                "dsp": True,
+                "accelerations": ["ART Accelerator"]
             },
             "memory": {
                 "flash_kb": 512,

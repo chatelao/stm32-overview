@@ -41,6 +41,12 @@ def test_cli_recommend():
     assert "Board: Nucleo-C542RC (Match Score: 100.0%)" in result.output
     assert "Matched Features" in result.output
 
+def test_cli_recommend_dsp():
+    runner = CliRunner()
+    result = runner.invoke(cli, ["recommend", "-d"])
+    assert result.exit_code == 0
+    assert "Matched Features" in result.output
+
 def test_cli_export(tmp_path):
     output_file = tmp_path / "test_report.md"
     runner = CliRunner()
