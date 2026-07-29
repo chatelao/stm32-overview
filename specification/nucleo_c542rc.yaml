@@ -5,32 +5,33 @@ core:
   frequency_mhz: 144
   fpu: true
   cordic: true
-  fmac: true
+  fmac: false
   instruction_set: "Armv8-M Mainline"
   fpu_type: "FPv5-SP"
   dsp: true
   accelerations:
     - "ART Accelerator"
-    - "TrustZone"
+    - "AES coprocessor"
+    - "HASH hardware accelerator"
 memory:
   flash_kb: 256
   sram_kb: 64
 peripherals:
   uarts: 2
   usarts: 2
-  i2c: 2
+  i2c: 1
   spi: 2
-  can: 1
+  can: 2
   adc_channels: 12
-  dac_channels: 1
-  timers: 8
+  dac_channels: 2
+  timers: 10
   opamps: 1
   comps: 2
-  adc_resolution_bits: 14
-  adc_speed_msps: 2.5
+  adc_resolution_bits: 12
+  adc_speed_msps: 2.25
   timer_resolution_bits: 32
 electrical:
-  min_voltage: 1.71
+  min_voltage: 2.7
   max_voltage: 3.6
 documentation:
   user_manual:
