@@ -36,7 +36,7 @@ def test_cli_compare():
 
 def test_cli_recommend():
     runner = CliRunner()
-    result = runner.invoke(cli, ["recommend", "-r", "M33", "-c", "-a"])
+    result = runner.invoke(cli, ["recommend", "-r", "M33", "-c"])
     assert result.exit_code == 0
     assert "Board: Nucleo-C542RC (Match Score: 100.0%)" in result.output
     assert "Matched Features" in result.output

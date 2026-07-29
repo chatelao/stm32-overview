@@ -8,22 +8,22 @@
 | instruction_set | Armv6-M | Armv8-M Mainline | Armv7E-M | Armv7E-M |
 | dsp | No | Yes | Yes | Yes |
 | cordic | No | Yes | No | Yes |
-| fmac | No | Yes | No | Yes |
-| accelerations | None | ART Accelerator, TrustZone | ART Accelerator | ART Accelerator |
+| fmac | No | No | No | Yes |
+| accelerations | None | ART Accelerator, AES coprocessor, HASH hardware accelerator | ART Accelerator | ART Accelerator |
 | flash_kb | 32 | 256 | 512 | 128 |
 | sram_kb | 12 | 64 | 128 | 32 |
 | uarts | 1 | 2 | 4 | 1 |
 | usarts | 1 | 2 | 2 | 3 |
-| i2c | 1 | 2 | 3 | 3 |
+| i2c | 1 | 1 | 3 | 3 |
 | spi | 1 | 2 | 4 | 3 |
-| can | 0 | 1 | 2 | 1 |
+| can | 0 | 2 | 2 | 1 |
 | adc_channels | 5 | 12 | 16 | 26 |
-| dac_channels | 0 | 1 | 2 | 4 |
-| timers | 4 | 8 | 10 | 13 |
+| dac_channels | 0 | 2 | 2 | 4 |
+| timers | 4 | 10 | 10 | 13 |
 | opamps | 0 | 1 | 0 | 3 |
 | comps | 0 | 2 | 0 | 4 |
-| adc_resolution_bits | 12 | 14 | 12 | 12 |
-| adc_speed_msps | 1.25 | 2.5 | 2.4 | 4.0 |
+| adc_resolution_bits | 12 | 12 | 12 | 12 |
+| adc_speed_msps | 1.25 | 2.25 | 2.4 | 4.0 |
 | timer_resolution_bits | 16 | 32 | 32 | 32 |
-| min_voltage | 2.0 | 1.71 | 1.7 | 1.71 |
+| min_voltage | 2.0 | 2.7 | 1.7 | 1.71 |
 | max_voltage | 3.6 | 3.6 | 3.6 | 3.6 |
