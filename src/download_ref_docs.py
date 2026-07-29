@@ -71,6 +71,45 @@ DOWNLOAD_TARGETS = [
         "url": "https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
         "dest": "specification/pdfs/mcus/stm32c542rc_reference_manual.pdf",
         "is_fallback": True
+    },
+    # XIAO RP2040
+    {
+        "url": "https://datasheets.raspberrypi.com/rp2040/rp2040-product-brief.pdf",
+        "dest": "specification/pdfs/boards/xiao_rp2040_user_manual.pdf"
+    },
+    {
+        "url": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
+        "dest": "specification/pdfs/mcus/rp2040_datasheet.pdf"
+    },
+    {
+        "url": "https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf",
+        "dest": "specification/pdfs/mcus/rp2040_reference_manual.pdf"
+    },
+    # XIAO RP2354A
+    {
+        "url": "https://datasheets.raspberrypi.com/rp2350/rp2350-product-brief.pdf",
+        "dest": "specification/pdfs/boards/xiao_rp2354a_user_manual.pdf"
+    },
+    {
+        "url": "https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf",
+        "dest": "specification/pdfs/mcus/rp2354a_datasheet.pdf"
+    },
+    {
+        "url": "https://datasheets.raspberrypi.com/rp2350/hardware-design-with-rp2350.pdf",
+        "dest": "specification/pdfs/mcus/rp2354a_reference_manual.pdf"
+    },
+    # XIAO RA4M1
+    {
+        "url": "https://www.renesas.com/en/document/mah/renesas-ra4m1-group-users-manual-hardware",
+        "dest": "specification/pdfs/boards/xiao_ra4m1_user_manual.pdf"
+    },
+    {
+        "url": "https://www.renesas.com/en/document/dst/ra4m1-group-datasheet",
+        "dest": "specification/pdfs/mcus/ra4m1_datasheet.pdf"
+    },
+    {
+        "url": "https://www.renesas.com/en/document/mah/renesas-ra4m1-group-users-manual-hardware",
+        "dest": "specification/pdfs/mcus/ra4m1_reference_manual.pdf"
     }
 ]
 

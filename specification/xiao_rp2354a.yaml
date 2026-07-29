@@ -1,0 +1,45 @@
+board: "XIAO RP2354A"
+mcu: "RP2354A"
+core:
+  architecture: "Cortex-M33"
+  frequency_mhz: 150
+  fpu: true
+  cordic: false
+  fmac: false
+  instruction_set: "Armv8-M"
+  fpu_type: "FPv5-SP"
+  dsp: true
+  accelerations:
+    - "Secure Boot"
+    - "OTP"
+    - "Arm TrustZone"
+memory:
+  flash_kb: 2048
+  sram_kb: 520
+peripherals:
+  uarts: 2
+  usarts: 0
+  i2c: 2
+  spi: 2
+  can: 0
+  adc_channels: 3
+  dac_channels: 0
+  timers: 1
+  opamps: 0
+  comps: 0
+  adc_resolution_bits: 12
+  adc_speed_msps: 0.5
+  timer_resolution_bits: 64
+electrical:
+  min_voltage: 1.62
+  max_voltage: 3.63
+documentation:
+  user_manual:
+    url: "https://datasheets.raspberrypi.com/rp2350/rp2350-product-brief.pdf"
+    dest: "specification/pdfs/boards/xiao_rp2354a_user_manual.pdf"
+  datasheet:
+    url: "https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf"
+    dest: "specification/pdfs/mcus/rp2354a_datasheet.pdf"
+  reference_manual:
+    url: "https://datasheets.raspberrypi.com/rp2350/hardware-design-with-rp2350.pdf"
+    dest: "specification/pdfs/mcus/rp2354a_reference_manual.pdf"

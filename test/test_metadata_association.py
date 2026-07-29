@@ -12,8 +12,8 @@ def test_yaml_documentation_matches_downloader_targets():
     repo = DataRepository("specification")
     specs = repo.load_all_specs()
 
-    # We expect exactly 4 specifications loaded.
-    assert len(specs) == 4, f"Expected 4 specs, but got {len(specs)}"
+    # We expect exactly 7 specifications loaded.
+    assert len(specs) == 7, f"Expected 7 specs, but got {len(specs)}"
 
     # Convert downloader targets list into a lookup dictionary/set of (url, dest)
     downloader_pairs = {(target["url"], target["dest"]) for target in DOWNLOAD_TARGETS}

@@ -1,0 +1,44 @@
+board: "XIAO RA4M1"
+mcu: "RA4M1"
+core:
+  architecture: "Cortex-M4"
+  frequency_mhz: 48
+  fpu: true
+  cordic: false
+  fmac: false
+  instruction_set: "Armv7E-M"
+  fpu_type: "FPv4-SP"
+  dsp: true
+  accelerations:
+    - "Secure Boot"
+    - "Hardware Encryption (AES128/256)"
+memory:
+  flash_kb: 256
+  sram_kb: 32
+peripherals:
+  uarts: 2
+  usarts: 0
+  i2c: 2
+  spi: 2
+  can: 1
+  adc_channels: 6
+  dac_channels: 1
+  timers: 10
+  opamps: 0
+  comps: 0
+  adc_resolution_bits: 14
+  adc_speed_msps: 1.0
+  timer_resolution_bits: 32
+electrical:
+  min_voltage: 1.6
+  max_voltage: 5.5
+documentation:
+  user_manual:
+    url: "https://www.renesas.com/en/document/mah/renesas-ra4m1-group-users-manual-hardware"
+    dest: "specification/pdfs/boards/xiao_ra4m1_user_manual.pdf"
+  datasheet:
+    url: "https://www.renesas.com/en/document/dst/ra4m1-group-datasheet"
+    dest: "specification/pdfs/mcus/ra4m1_datasheet.pdf"
+  reference_manual:
+    url: "https://www.renesas.com/en/document/mah/renesas-ra4m1-group-users-manual-hardware"
+    dest: "specification/pdfs/mcus/ra4m1_reference_manual.pdf"
